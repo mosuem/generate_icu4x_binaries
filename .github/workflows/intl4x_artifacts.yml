@@ -1,4 +1,4 @@
-name: package:intl4x
+name: Generate artifacts for intl4x
 
 permissions:
   contents: write
@@ -11,6 +11,7 @@ on:
 
 env:
     cratename: icu_capi
+    icu_version: main #set to icu@1.4.0 or a similar constraint at some point
 
 jobs:
   dart-libs:
@@ -18,16 +19,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os: [ ubuntu-latest, macos-latest, windows-latest ]
-        os: [ windows-latest ]
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
       with:
         repository: unicode-org/icu4x
-        # ref: icu@1.4.0
-        ref: main
+        ref: ${{ env.icu_version }}
 
     - name: Install Rust toolchains
       run: |
@@ -82,4 +81,4 @@ jobs:
         with:
           files: '**'
           fail_on_unmatched_files: true
-          body: "Release for ICU4X v1.4"
+          body: "Release for ICU4X ${{ env.icu_version }}"
