@@ -1,5 +1,7 @@
 name: package:intl4x
-permissions: read-all
+
+permissions:
+  contents: write
 
 on:
   push:

@@ -1,0 +1,14 @@
+name: generate_icu4x_binaries
+description: A sample command-line application with basic argument parsing.
+version: 0.0.1
+repository: https://github.com/mosuem/generate_icu4x_binaries
+
+environment:
+  sdk: ^3.4.0-97.0.dev
+
+dependencies:
+  native_assets_cli: ^0.4.2
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
