@@ -11,7 +11,7 @@ on:
 
 env:
     cratename: icu_capi
-    icu_version: main #set to icu@1.4.0 or a similar constraint at some point
+    icu_version: generateSomeBinariesOnly #set to icu@1.4.0 or a similar constraint at some point
 
 jobs:
   dart-libs:
@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
       with:
-        repository: unicode-org/icu4x
+        repository: mosuem/icu4x #switch to unicode
         ref: ${{ env.icu_version }}
 
     - name: Install Rust toolchains
